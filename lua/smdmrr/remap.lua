@@ -30,6 +30,7 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 -- Changing current word in whole file
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
 -- Make file exectable
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 vim.keymap.set("i", "fj", "<esc>")           -- fast escape
@@ -48,7 +49,7 @@ vim.keymap.set("", "<Down>", "<nop>")
 vim.keymap.set("", "<Left>", "<nop>")
 vim.keymap.set("", "<Right>", "<nop>")
 
-
+-- Breckets autocomplitions
 vim.keymap.set("i", "(", ")<esc>h")
 vim.keymap.set("i", "(", "()<Esc>i")
 vim.keymap.set("i", "{", "{}<Esc>i")
@@ -57,3 +58,9 @@ vim.keymap.set("i", "[", "[]<Esc>i")
 vim.keymap.set("i", "<", "<><Esc>i")
 vim.keymap.set("i", "'", "''<Esc>i")
 vim.keymap.set("i", "\"", "\"\"<Esc>i")
+
+-- Window managment
+vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })
+vim.keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" })
+vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" })
+vim.keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" })
