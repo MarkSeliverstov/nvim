@@ -50,14 +50,12 @@ vim.keymap.set("", "<Left>", "<nop>")
 vim.keymap.set("", "<Right>", "<nop>")
 
 -- Breckets autocomplitions
-vim.keymap.set("i", "(", ")<esc>h")
-vim.keymap.set("i", "(", "()<Esc>i")
-vim.keymap.set("i", "{", "{}<Esc>i")
-vim.keymap.set("i", "{<CR>", "{<CR>}<Esc>O")
-vim.keymap.set("i", "[", "[]<Esc>i")
-vim.keymap.set("i", "<", "<><Esc>i")
-vim.keymap.set("i", "'", "''<Esc>i")
-vim.keymap.set("i", "\"", "\"\"<Esc>i")
+-- vim.keymap.set("i", "(", "()<Esc>i")
+-- vim.keymap.set("i", "{", "{}<Esc>i")
+-- vim.keymap.set("i", "{<CR>", "{<CR>}<Esc>O")
+-- vim.keymap.set("i", "[", "[]<Esc>i")
+-- vim.keymap.set("i", "'", "''<Esc>i")
+-- vim.keymap.set("i", "\"", "\"\"<Esc>i")
 
 -- Window managment
 vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })
