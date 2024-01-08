@@ -17,7 +17,7 @@ end)
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-  ensure_installed = {'tsserver', 'rust_analyzer'},
+  ensure_installed = {'tsserver'},
   handlers = {
     lsp_zero.default_setup,
     lua_ls = function()
@@ -40,9 +40,10 @@ cmp.setup({
   },
   formatting = lsp_zero.cmp_format(),
   mapping = cmp.mapping.preset.insert({
-    ['<C-[>'] = cmp.mapping.select_prev_item(cmp_select),
-    ['<C-]>'] = cmp.mapping.select_next_item(cmp_select),
-    ['<C-\\>'] = cmp.mapping.confirm({ select = true }),
+    ['<Up>'] = cmp.mapping.select_prev_item(cmp_select),
+    ['<Down>'] = cmp.mapping.select_next_item(cmp_select),
+    ['<Tab>'] = cmp.mapping.confirm({ select = true }),
+    ['<C-e>'] = cmp.mapping.abort(),
     ['<C-Space>'] = cmp.mapping.complete(),
   }),
 })

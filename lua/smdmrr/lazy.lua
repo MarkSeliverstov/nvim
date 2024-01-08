@@ -15,7 +15,7 @@ local plugins = {
   {
     "nvim-telescope/telescope.nvim",
     tag = "0.1.5",
-    dependencies = {"nvim-lua/plenary.nvim"}
+    dependencies = { "nvim-lua/plenary.nvim" }
   },
 
   {
@@ -26,16 +26,17 @@ local plugins = {
     end
   },
 
-  {"mbbill/undotree"},
+  { "mbbill/undotree" },
 
-  {"neovim/nvim-lspconfig"},
-  {"williamboman/mason.nvim"},
-  {"williamboman/mason-lspconfig.nvim"},
+  { "neovim/nvim-lspconfig" },
+  { "williamboman/mason.nvim" },
+  { "williamboman/mason-lspconfig.nvim" },
 
-  {"VonHeikemen/lsp-zero.nvim", branch = "v3.x"},
-  {"hrsh7th/cmp-nvim-lsp"},
-  {"hrsh7th/nvim-cmp"},
-  {"L3MON4D3/LuaSnip"},
+  { "VonHeikemen/lsp-zero.nvim" },
+  { "hrsh7th/cmp-nvim-lsp" },
+  { "hrsh7th/nvim-cmp" },
+  { "hrsh7th/cmp-path" },
+  { "L3MON4D3/LuaSnip" },
   {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' }
@@ -45,7 +46,7 @@ local plugins = {
     "nvim-tree/nvim-tree.lua",
     dependencies = {
       "nvim-tree/nvim-web-devicons",
-    }, 
+    },
   },
   {
     "christoomey/vim-tmux-navigator",
@@ -57,10 +58,10 @@ local plugins = {
       "TmuxNavigatePrevious",
     },
     keys = {
-      { "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
-      { "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
-      { "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
-      { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
+      { "<c-h>",  "<cmd><C-U>TmuxNavigateLeft<cr>" },
+      { "<c-j>",  "<cmd><C-U>TmuxNavigateDown<cr>" },
+      { "<c-k>",  "<cmd><C-U>TmuxNavigateUp<cr>" },
+      { "<c-l>",  "<cmd><C-U>TmuxNavigateRight<cr>" },
       { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
     },
   },
@@ -73,6 +74,10 @@ local plugins = {
     end,
     ft = { "markdown" },
   },
+  {
+    "godlygeek/tabular"
+  },
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 }
 }
 
 require("lazy").setup(plugins)
