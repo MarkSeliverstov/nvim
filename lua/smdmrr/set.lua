@@ -30,11 +30,12 @@ vim.opt.relativenumber = true                   -- set relative numbered lines
 vim.opt.numberwidth = 4                         -- set number column width to 4
 vim.opt.signcolumn = "yes"                      -- always show the sign column, otherwise it would shift the text each time
 vim.opt.wrap = false                            -- display lines as one long line
-vim.opt.scrolloff = 8                           -- is one of my fav
+vim.opt.scrolloff = 8                           -- scroll offset 
+vim.opt.sidescrolloff = 8                       -- side scroll offset
 vim.opt.guifont = "monospace:h17"               -- the font used in graphical neovim applications
 vim.opt.colorcolumn = "80"                      -- vertical line for vizual text aligin 
 vim.opt.signcolumn = "no"                       -- remove left gray additional line
-vim.opt.cmdheight = 0                           -- make cmdline right in the status line
+vim.opt.cmdheight = 1                           -- Nvim CMD line hight 
 
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
