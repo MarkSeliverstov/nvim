@@ -42,7 +42,9 @@ cmp.setup({
   mapping = cmp.mapping.preset.insert({
     ['<Up>'] = cmp.mapping.select_prev_item(cmp_select),
     ['<Down>'] = cmp.mapping.select_next_item(cmp_select),
-    ['<Tab>'] = cmp.mapping.confirm({ select = true }),
+    -- ['<Tab>'] = cmp.mapping.confirm({ select = true }), - I can't use just tab because of copilot
+    ['<Cr>'] = cmp.mapping.confirm({ select = true }),
+    ['<S-Tab>'] = cmp.mapping.confirm({ select = true }),
     ['<C-e>'] = cmp.mapping.abort(),
     ['<C-Space>'] = cmp.mapping.complete(),
   }),
