@@ -6,7 +6,6 @@ return {
         },
     },
     "eandrju/cellular-automaton.nvim",
-    "junegunn/goyo.vim",
     "github/copilot.vim",
 }
 
