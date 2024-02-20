@@ -38,3 +38,5 @@ vim.opt.cmdheight = 1                           -- Nvim CMD line hight
 
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
+
+vim.g.copilot_filetypes = {markdown = true}
