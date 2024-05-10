@@ -1,3 +1,4 @@
+# TODO - move to lua/smdmrr/plugins
 local lsp_zero = require('lsp-zero')
 local lspconfig = require('lspconfig')
 
