@@ -1,42 +1,37 @@
-local capabilities = nil
-if pcall(require, "cmp_nvim_lsp") then
-	capabilities = require("cmp_nvim_lsp").default_capabilities()
-end
-
-local lspconfig = require("lspconfig")
-
-local servers_to_install = {
+local lsp_servers = {
 	"bashls",
 	"clangd",
 	"dockerls",
 	"jsonls",
-	"markdownlint",
 	"omnisharp",
-	"ruff_lsp",
 	"tsserver",
 	"yamlls",
-	"shellcheck",
-	-- "pyright",
+	"pyright", -- python lsp
+	"lua_ls",
 }
-
-require("mason").setup()
 local ensure_installed = {
 	"stylua",
-	"lua_ls",
-	"ruff",
-	-- "mypy",
-	-- "pylsp",
-	-- "flake8",
+	"markdownlint",
+	"shellcheck",
+	"ruff", -- python formatter/linter
+	"mypy", -- python type checker
 }
+vim.list_extend(ensure_installed, lsp_servers)
 
-vim.list_extend(ensure_installed, servers_to_install)
+local lspconfig = require("lspconfig")
+
+-- Install the following tools
+require("mason").setup()
 require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
-vim.api.nvim_create_autocmd("LspAttach", {
-	callback = function(args)
-		local bufnr = args.buf
-		local client = assert(vim.lsp.get_client_by_id(args.data.client_id), "must have valid client")
+-- Enable the following language servers
+for _, server in ipairs(lsp_servers) do
+	lspconfig[server].setup({})
+end
 
+-- Keymaps for LSP
+vim.api.nvim_create_autocmd("LspAttach", {
+	callback = function()
 		vim.opt_local.omnifunc = "v:lua.vim.lsp.omnifunc"
 		vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = 0 })
 		vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = 0 })
