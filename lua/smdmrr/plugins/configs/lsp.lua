@@ -8,13 +8,14 @@ local lsp_servers = {
 	"yamlls",
 	"pyright", -- python lsp
 	"lua_ls",
+	"ruff", -- python formatter/linter
 }
 local ensure_installed = {
 	"stylua",
 	"markdownlint",
 	"shellcheck",
-	"ruff", -- python formatter/linter
 	"mypy", -- python type checker
+	"ruff-lsp", -- python formatter/linter
 }
 vim.list_extend(ensure_installed, lsp_servers)
 
@@ -28,6 +29,25 @@ require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 for _, server in ipairs(lsp_servers) do
 	lspconfig[server].setup({})
 end
+
+-- Setup yamlls language server
+lspconfig.yamlls.setup({
+	settings = {
+		yaml = {
+			validate = true,
+			schemas = {
+				kubernetes = { "*.yaml" },
+				["https://json.schemastore.org/github-workflow.json"] = ".github/workflows/*.{yml,yaml}",
+				["https://json.schemastore.org/github-action.json"] = ".github/action.{yml,yaml}",
+			},
+		},
+	},
+})
+
+-- Setup clangd language server with custom command options
+lspconfig.clangd.setup({
+	cmd = { "clangd", "--fallback-style=webkit" },
+})
 
 -- Keymaps for LSP
 vim.api.nvim_create_autocmd("LspAttach", {
