@@ -16,7 +16,9 @@ local ensure_installed = {
 	"shellcheck",
 	"mypy", -- python type checker
 	"ruff-lsp", -- python formatter/linter
+	"typescript-language-server",
 	"eslint-lsp",
+	"prettierd",
 }
 vim.list_extend(ensure_installed, lsp_servers)
 
@@ -52,26 +54,6 @@ lspconfig.yamlls.setup({
 -- Setup clangd language server with custom command options
 lspconfig.clangd.setup({
 	cmd = { "clangd", "--fallback-style=webkit" },
-})
-
-lspconfig.eslint.setup({
-	bin = "eslint_d", -- or `eslint`
-	code_actions = {
-		enable = true,
-		apply_on_save = {
-			enable = true,
-			types = { "directive", "problem", "suggestion", "layout" },
-		},
-		disable_rule_comment = {
-			enable = true,
-			location = "separate_line", -- or `same_line`
-		},
-	},
-	diagnostics = {
-		enable = true,
-		report_unused_disable_directives = false,
-		run_on = "type", -- or `save`
-	},
 })
 
 -- Keymaps for LSP

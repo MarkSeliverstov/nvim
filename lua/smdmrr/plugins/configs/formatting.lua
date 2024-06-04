@@ -6,6 +6,9 @@ require("conform").setup({
 			"ruff_format", -- To run the Ruff formatter.
 		},
 		markdown = { "markdownlint" },
+		typescript = { { "prettierd", "prettier" } },
+		javascript = { { "prettierd", "prettier" } },
+		graphql = { { "prettierd", "prettier" } },
 	},
 	format_on_save = {
 		lsp_fallback = true,
