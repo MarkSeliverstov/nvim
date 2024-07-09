@@ -90,6 +90,13 @@ return {
 			padding = { left = 0, right = 1 }, -- We don't need space before this
 		})
 
+
+		ins_left({
+			"filesize",
+			cond = conditions.buffer_not_empty,
+			color = { fg = colors.darkwhite, gui = "bold" },
+		})
+
 		ins_left({
 			"filename",
 			cond = conditions.buffer_not_empty,
