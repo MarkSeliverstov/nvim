@@ -11,7 +11,7 @@ return {
 		require("btw").setup({
 			text = get_random_message({
 				"Oh hi Mark!",
-				"I used vim (BTW)",
+				"I use vim (BTW)",
 				"VSCode the best",
 			}),
 		})
