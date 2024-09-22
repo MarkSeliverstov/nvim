@@ -7,21 +7,39 @@ return {
 		-- Credit: glepnir
 		local lualine = require("lualine")
 
-        -- Color table for highlights
-        -- stylua: ignore
-        local colors = {
-          bg       = '#202328',
-          fg       = '#bbc2cf',
-          yellow   = '#ECBE7B',
-          cyan     = '#008080',
-          darkblue = '#081633',
-          green    = '#98be65',
-          orange   = '#FF8800',
-          violet   = '#a9a1e1',
-          darkwhite  = '#8787AF',
-          blue     = '#51afef',
-          red      = '#ec5f67',
-        }
+		local function wordcount()
+			local wc = vim.fn.wordcount()
+			local words = tostring(wc.words)
+			local mode = vim.fn.mode()
+
+			if mode == "v" or mode == "V" then
+				-- Show visual selection word count
+				return tostring(wc.visual_words) .. "/" .. words .. " words"
+			end
+
+			-- Show total word count
+			return words .. " words"
+		end
+
+		local function is_markdown()
+			return vim.bo.filetype == "markdown" or vim.bo.filetype == "asciidoc"
+		end
+
+    -- Color table for highlights
+    -- stylua: ignore
+    local colors = {
+      bg       = '#202328',
+      fg       = '#bbc2cf',
+      yellow   = '#ECBE7B',
+      cyan     = '#008080',
+      darkblue = '#081633',
+      green    = '#98be65',
+      orange   = '#FF8800',
+      violet   = '#a9a1e1',
+      darkwhite  = '#8787AF',
+      blue     = '#51afef',
+      red      = '#ec5f67',
+    }
 
 		local conditions = {
 			buffer_not_empty = function()
@@ -90,7 +108,6 @@ return {
 			padding = { left = 0, right = 1 }, -- We don't need space before this
 		})
 
-
 		ins_left({
 			"filesize",
 			cond = conditions.buffer_not_empty,
@@ -101,6 +118,12 @@ return {
 			"filename",
 			cond = conditions.buffer_not_empty,
 			color = { fg = colors.darkwhite, gui = "bold" },
+		})
+
+		ins_left({
+			wordcount,
+			cond = is_markdown,
+			color = { fg = colors.darkwhite },
 		})
 
 		ins_left({
