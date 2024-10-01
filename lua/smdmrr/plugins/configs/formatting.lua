@@ -6,12 +6,17 @@ require("conform").setup({
 			"ruff_format", -- To run the Ruff formatter.
 		},
 		markdown = { "markdownlint" },
-		typescript = { { "prettierd", "prettier" } },
-		javascript = { { "prettierd", "prettier" } },
-		graphql = { { "prettierd", "prettier" } },
-		json = { { "prettierd", "prettier" } },
-		yaml = { { "prettierd", "prettier" } },
-    vue = { { "prettierd", "prettier" } },
+		typescript = { "prettierd", "prettier", stop_after_first = true },
+		javascript = { "prettierd", "prettier", stop_after_first = true },
+		javascriptreact = { "prettierd", "prettier", stop_after_first = true },
+		typescriptreact = { "prettierd", "prettier", stop_after_first = true },
+    css = { "prettierd", "prettier", stop_after_first = true },
+		graphql = { "prettierd", "prettier", stop_after_first = true },
+		json = { "prettierd", "prettier", stop_after_first = true },
+		yaml = { "prettierd", "prettier", stop_after_first = true },
+		vue = { "prettierd", "prettier", stop_after_first = true },
+		terraform = { "terraform_fmt" },
+    sql = { "sql-formatter" },
 	},
 	-- format_on_save = {
 	-- 	lsp_fallback = true,
@@ -30,9 +35,4 @@ require("conform").setup({
 -- })
 
 -- Command to format the current buffer
-vim.api.nvim_set_keymap(
-	"n",
-	"FF",
-	"<cmd>lua require('conform').format()<CR>",
-	{ noremap = true, silent = true }
-)
+vim.api.nvim_set_keymap("n", "FF", "<cmd>lua require('conform').format()<CR>", { noremap = true, silent = true })
