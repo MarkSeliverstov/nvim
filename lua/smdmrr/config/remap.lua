@@ -51,3 +51,10 @@ vim.keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current spli
 vim.keymap.set("n", "<leader>bn", ":bnext<Cr>")
 vim.keymap.set("n", "<leader>bb", ":bprevious<Cr>")
 vim.keymap.set("n", "<leader>bd", ":bdelete<Cr>")
+
+-- Copilot
+vim.keymap.set("i", "<C-L>", "<Plug>(copilot-accept-word)")
+vim.keymap.set("i", "<C-K>", "<Plug>(copilot-next)")
+vim.keymap.set("i", "<C-J>", "<Plug>(copilot-previous)")
+vim.keymap.set("i", "<C-]>", "<Plug>(copilot-suggest)")
+vim.keymap.set("i", "<C-\\>", "<Plug>(copilot-dismiss)")
