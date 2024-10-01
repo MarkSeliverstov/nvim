@@ -3,22 +3,28 @@ local lsp_servers = {
 	"clangd",
 	"dockerls",
 	"jsonls",
+	"lua_ls",
 	"omnisharp",
+	"pyright", -- python lsp
+	"ruff", -- python formatter/linter
 	"tsserver",
 	"yamlls",
-	"pyright", -- python lsp
-	"lua_ls",
-	"ruff", -- python formatter/linter
+	"sqls",
+	"terraformls",
 }
 local ensure_installed = {
-	"stylua",
-	"markdownlint",
-	"shellcheck",
-	"mypy", -- python type checker
-	"ruff-lsp", -- python formatter/linter
-	"typescript-language-server",
+	"css-lsp",
 	"eslint-lsp",
+	"markdownlint",
+	"mypy", -- python type checker
+	"prettier",
 	"prettierd",
+	"ruff-lsp", -- python formatter/linter
+	"shellcheck",
+	"stylua",
+	"tailwindcss-language-server",
+	"typescript-language-server",
+	"sql-formatter",
 }
 vim.list_extend(ensure_installed, lsp_servers)
 
@@ -32,6 +38,71 @@ require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 for _, server in ipairs(lsp_servers) do
 	lspconfig[server].setup({})
 end
+
+-- Setup tailwindcss language server
+lspconfig.tailwindcss.setup({
+	filetypes = {
+		"aspnetcorerazor",
+		"astro",
+		"astro-markdown",
+		"blade",
+		"django-html",
+		"edge",
+		"eelixir",
+		"ejs",
+		"erb",
+		"eruby",
+		"gohtml",
+		"haml",
+		"handlebars",
+		"hbs",
+		"html",
+		"html-eex",
+		"heex",
+		"jade",
+		"leaf",
+		"liquid",
+		"mdx",
+		"mustache",
+		"njk",
+		"nunjucks",
+		"razor",
+		"slim",
+		"twig",
+		"css",
+		"less",
+		"postcss",
+		"sass",
+		"scss",
+		"stylus",
+		"sugarss",
+		"javascriptreact",
+		"reason",
+		"rescript",
+		"typescriptreact",
+		"vue",
+		"svelte",
+	},
+})
+
+-- configure lua server (with special settings)
+lspconfig.lua_ls.setup({
+	settings = { -- custom settings for lua
+		Lua = {
+			-- make the language server recognize "vim" global
+			diagnostics = {
+				globals = { "vim" },
+			},
+			workspace = {
+				-- make language server aware of runtime files
+				library = {
+					[vim.fn.expand("$VIMRUNTIME/lua")] = true,
+					[vim.fn.stdpath("config") .. "/lua"] = true,
+				},
+			},
+		},
+	},
+})
 
 -- Setup yamlls language server
 lspconfig.yamlls.setup({
