@@ -16,3 +16,8 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("smdmrr.plugins")
 
 vim.cmd.colorscheme("kanagawa")
+vim.filetype.add({
+	extension = {
+		mdx = "mdx",
+	},
+})
