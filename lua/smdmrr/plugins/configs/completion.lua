@@ -1,3 +1,5 @@
+require("smdmrr.plugins.configs.snippets")
+
 vim.opt.completeopt = { "menu", "menuone", "noselect", "noinsert" }
 vim.opt.shortmess:append("c")
 
@@ -11,6 +13,7 @@ cmp.setup({
 		{ name = "nvim_lsp" },
 		{ name = "path" },
 		{ name = "buffer" },
+    { name = "luasnip" },
 	},
 	mapping = {
 		["<Up>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
@@ -31,8 +34,3 @@ cmp.setup({
 	},
 })
 
-local ls = require("luasnip")
-ls.config.set_config({
-	history = false,
-	updateevents = "TextChanged,TextChangedI",
-})
