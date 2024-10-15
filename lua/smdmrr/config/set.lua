@@ -34,7 +34,7 @@ vim.opt.sidescrolloff = 8 -- side scroll offset
 vim.opt.guifont = "monospace:h17" -- the font used in graphical neovim applications
 vim.opt.colorcolumn = "80" -- vertical line for vizual text aligin
 vim.opt.signcolumn = "yes" -- remove left gray additional line
-vim.opt.cmdheight = 1 -- Nvim CMD line hight
+vim.opt.cmdheight = 2 -- Nvim CMD line hight
 
 vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.cmd([[set iskeyword+=-]])
