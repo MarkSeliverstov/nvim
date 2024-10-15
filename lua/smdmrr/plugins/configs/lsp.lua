@@ -12,9 +12,11 @@ local lsp_servers = {
 	"sqls",
 	"terraformls",
 }
+
 local ensure_installed = {
-	"css-lsp",
 	"eslint-lsp",
+	"eslint_d",
+	"css-lsp",
 	"markdownlint",
 	"mypy", -- python type checker
 	"prettier",
@@ -24,7 +26,6 @@ local ensure_installed = {
 	"stylua",
 	"tailwindcss-language-server",
 	"typescript-language-server",
-	"sql-formatter",
 }
 vim.list_extend(ensure_installed, lsp_servers)
 
@@ -143,5 +144,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 		vim.keymap.set("n", "<space>cr", vim.lsp.buf.rename, { buffer = 0 })
 		vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, { buffer = 0 })
+	end,
+})
+
+vim.lsp.buf.format({
+	filter = function(client)
+		return client.name ~= "tsserver"
 	end,
 })
