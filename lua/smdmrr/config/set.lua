@@ -36,6 +36,10 @@ vim.opt.colorcolumn = "80" -- vertical line for vizual text aligin
 vim.opt.signcolumn = "yes" -- remove left gray additional line
 vim.opt.cmdheight = 2 -- Nvim CMD line hight
 
+vim.opt.foldmethod = "expr" -- foldmethod
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()" -- foldexpr
+vim.opt.foldlevelstart = 99 -- foldlevelstart
+
 vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.cmd([[set iskeyword+=-]])
 

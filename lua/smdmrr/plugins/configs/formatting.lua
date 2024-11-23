@@ -21,6 +21,7 @@ require("conform").setup({
 		vue = { "prettierd", "prettier", stop_after_first = true },
 		terraform = { "terraform_fmt" },
 		sql = { "sql-formatter" },
+    go = { "gofmt", "gofumpt" },
 	},
 	-- format_on_save = {
 	-- 	lsp_fallback = true,

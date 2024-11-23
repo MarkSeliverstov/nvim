@@ -11,6 +11,7 @@ local lsp_servers = {
 	"yamlls",
 	"sqls",
 	"terraformls",
+  "gopls",
 }
 
 local ensure_installed = {
@@ -26,6 +27,8 @@ local ensure_installed = {
 	"stylua",
 	"tailwindcss-language-server",
 	"typescript-language-server",
+  "goimports",
+  "gofumpt",
 }
 vim.list_extend(ensure_installed, lsp_servers)
 

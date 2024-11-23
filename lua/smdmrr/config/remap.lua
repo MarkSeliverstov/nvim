@@ -1,8 +1,8 @@
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex) -- default file explorer
 
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")  -- move text up
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")  -- move text down
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv") -- move text up
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv") -- move text down
 
 vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
@@ -33,7 +33,7 @@ vim.keymap.set("n", "H", "^")
 vim.keymap.set("n", ";", ":")
 vim.keymap.set("n", "<leader>q", ":q!<Cr>")
 vim.keymap.set("n", "<leader>a", ":wa<Cr>")
-vim.keymap.set("i", "fj", "<esc>")           -- fast escape
+vim.keymap.set("i", "fj", "<esc>") -- fast escape
 
 -- don't use arrows keys
 vim.keymap.set("", "<Up>", "<nop>")
@@ -58,3 +58,6 @@ vim.keymap.set("i", "<C-K>", "<Plug>(copilot-next)")
 vim.keymap.set("i", "<C-J>", "<Plug>(copilot-previous)")
 vim.keymap.set("i", "<C-]>", "<Plug>(copilot-suggest)")
 vim.keymap.set("i", "<C-\\>", "<Plug>(copilot-dismiss)")
+
+-- other
+vim.keymap.set("v", "<leader>r", ":w !python3<CR>", { desc = "Run python code" })
