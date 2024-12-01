@@ -16,9 +16,7 @@ return {
 				-- Show visual selection word count
 				return tostring(wc.visual_words) .. "/" .. words .. " words"
 			end
-
-			-- Show total word count
-			return words .. " words"
+			-- Show total word count return words .. " words"
 		end
 
 		local function is_markdown()
@@ -182,6 +180,12 @@ return {
 				removed = { fg = colors.red },
 			},
 			cond = conditions.hide_in_width,
+		})
+
+		ins_right({
+			-- Copilot status
+			"copilot",
+			show_colors = true,
 		})
 
 		-- add datetime

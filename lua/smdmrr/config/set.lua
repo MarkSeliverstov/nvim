@@ -42,5 +42,3 @@ vim.opt.foldlevelstart = 99 -- foldlevelstart
 
 vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.cmd([[set iskeyword+=-]])
-
-vim.g.copilot_filetypes = { markdown = true }
