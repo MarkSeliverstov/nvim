@@ -7,7 +7,7 @@ local lsp_servers = {
 	"omnisharp",
 	"pyright", -- python lsp
 	"ruff", -- python formatter/linter
-	"tsserver",
+	"ts_ls",
 	"yamlls",
 	"sqls",
 	"terraformls",
