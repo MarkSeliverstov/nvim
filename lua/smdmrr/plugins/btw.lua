@@ -10,9 +10,11 @@ return {
 	config = function()
 		require("btw").setup({
 			text = get_random_message({
-				"Oh hi Mark!",
-				"I use vim (BTW)",
-				"VSCode the best",
+				-- "Oh hi Mark!",
+				-- "I use vim (BTW)",
+				-- "VSCode the best",
+        -- "(-(-_-(-_(-_(-_-)_-)-_-)_-)_-)-)",
+        "(╯°□°）╯︵ ┻━┻"
 			}),
 		})
 	end,
