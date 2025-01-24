@@ -33,6 +33,7 @@ vim.keymap.set("n", "H", "^")
 vim.keymap.set("n", ";", ":")
 vim.keymap.set("n", "<leader>q", ":q!<Cr>")
 vim.keymap.set("n", "<leader>a", ":wa<Cr>")
+vim.keymap.set("n", "<leader>w", ":w<Cr>")
 vim.keymap.set("i", "fj", "<esc>") -- fast escape
 
 -- don't use arrows keys
@@ -54,3 +55,4 @@ vim.keymap.set("n", "<leader>bd", ":bdelete<Cr>")
 
 -- other
 vim.keymap.set("v", "<leader>r", ":w !python3<CR>", { desc = "Run python code" })
+vim.keymap.set("n", "<leader>D", ":DBUIToggle<CR>")

@@ -13,7 +13,7 @@ cmp.setup({
 		{ name = "nvim_lsp" },
 		{ name = "path" },
 		{ name = "buffer" },
-    { name = "luasnip" },
+		{ name = "luasnip" },
 	},
 	mapping = {
 		["<Up>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
@@ -34,3 +34,9 @@ cmp.setup({
 	},
 })
 
+cmp.setup.filetype({ "sql", "mysql", "plsql" }, {
+	sources = {
+		{ name = "vim-dadbod-completion" },
+		{ name = "buffer" },
+	},
+})
