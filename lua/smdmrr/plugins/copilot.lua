@@ -4,11 +4,12 @@ return {
 		"zbirenbaum/copilot.lua",
 		cmd = "Copilot",
 		event = "InsertEnter",
+		enabled = false,
 		config = function()
 			require("copilot").setup({
 				panel = { enabled = false },
 				suggestion = {
-					enabled = true,
+					enabled = false,
 					auto_trigger = false,
 					hide_during_completion = true,
 					debounce = 75,
@@ -23,7 +24,7 @@ return {
 				},
 				filetypes = {
 					-- yaml = false,
-					-- markdown = true,
+					markdown = true,
 					-- help = false,
 					-- gitcommit = false,
 					-- gitrebase = false,

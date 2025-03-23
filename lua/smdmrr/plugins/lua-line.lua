@@ -118,6 +118,8 @@ return {
 			color = { fg = colors.darkwhite, gui = "bold" },
 		})
 
+		ins_left({ "location" })
+
 		ins_left({
 			wordcount,
 			cond = is_markdown,
