@@ -11,7 +11,7 @@ local lsp_servers = {
 	"yamlls",
 	"sqls",
 	"terraformls",
-  "gopls",
+	"gopls",
 }
 
 local ensure_installed = {
@@ -22,13 +22,13 @@ local ensure_installed = {
 	"mypy", -- python type checker
 	"prettier",
 	"prettierd",
-	"ruff-lsp", -- python formatter/linter
+	"ruff", -- python formatter/linter
 	"shellcheck",
 	"stylua",
 	"tailwindcss-language-server",
 	"typescript-language-server",
-  "goimports",
-  "gofumpt",
+	"goimports",
+	"gofumpt",
 }
 vim.list_extend(ensure_installed, lsp_servers)
 

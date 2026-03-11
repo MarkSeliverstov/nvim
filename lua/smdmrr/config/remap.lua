@@ -54,5 +54,6 @@ vim.keymap.set("n", "<leader>bb", ":bprevious<Cr>")
 vim.keymap.set("n", "<leader>bd", ":bdelete<Cr>")
 
 -- other
-vim.keymap.set("v", "<leader>r", ":w !python3<CR>", { desc = "Run python code" })
+vim.keymap.set("v", "<leader>r", ":w !python3<CR>", { desc = "Run highlighted python code" })
+vim.keymap.set("n", "<leader>r", ":!python3 %<CR>", { desc = "Run current python file" })
 vim.keymap.set("n", "<leader>D", ":DBUIToggle<CR>")
