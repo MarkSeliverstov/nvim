@@ -4,14 +4,14 @@ local lsp_servers = {
 	"dockerls",
 	"jsonls",
 	"lua_ls",
-	"omnisharp",
+	-- "omnisharp",
 	"pyright", -- python lsp
 	"ruff", -- python formatter/linter
 	"ts_ls",
 	"yamlls",
-	"sqls",
+	-- "sqls",
 	"terraformls",
-	"gopls",
+	-- "gopls",
 }
 
 local ensure_installed = {
@@ -27,12 +27,12 @@ local ensure_installed = {
 	"stylua",
 	"tailwindcss-language-server",
 	"typescript-language-server",
-	"goimports",
-	"gofumpt",
+	-- "goimports",
+	-- "gofumpt",
 }
 vim.list_extend(ensure_installed, lsp_servers)
 
-local lspconfig = require("lspconfig")
+local lspconfig = vim.lsp.config
 
 -- Install the following tools
 require("mason").setup()
@@ -40,11 +40,11 @@ require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
 -- Enable the following language servers
 for _, server in ipairs(lsp_servers) do
-	lspconfig[server].setup({})
+	vim.lsp.enable(server)
 end
 
 -- Setup tailwindcss language server
-lspconfig.tailwindcss.setup({
+lspconfig("tailwindcss", {
 	filetypes = {
 		"aspnetcorerazor",
 		"astro",
@@ -90,7 +90,7 @@ lspconfig.tailwindcss.setup({
 })
 
 -- configure lua server (with special settings)
-lspconfig.lua_ls.setup({
+lspconfig("lua_ls", {
 	settings = { -- custom settings for lua
 		Lua = {
 			-- make the language server recognize "vim" global
@@ -109,7 +109,7 @@ lspconfig.lua_ls.setup({
 })
 
 -- Setup yamlls language server
-lspconfig.yamlls.setup({
+lspconfig("yamlls", {
 	settings = {
 		yaml = {
 			validate = true,
@@ -127,7 +127,7 @@ lspconfig.yamlls.setup({
 })
 
 -- Setup clangd language server with custom command options
-lspconfig.clangd.setup({
+lspconfig("clangd", {
 	cmd = { "clangd", "--fallback-style=webkit" },
 })
 
